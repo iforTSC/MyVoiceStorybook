@@ -1,0 +1,25 @@
+@import 'globalStyles/global.scss';
+@import 'globalStyles/icons.scss';
+
+select {
+  min-width: 320px;
+  height: 40px;
+  border: 1px solid $lighttext-colour;
+  font-size: 14px;
+  color: $text-colour;
+  border-radius: 4px;
+  margin:8px 0;
+  padding: 0px 8px 4px 8px;
+  font-family: 'Barlow'; 
+  appearance:none;
+  &:hover{
+    background-color: darken(white, $darkenby);
+    cursor: pointer;
+    }
+}
+
+select option{
+  color: $text-colour;
+  padding:   12px 8px 12px 8px;
+  line-height: 14px;
+}

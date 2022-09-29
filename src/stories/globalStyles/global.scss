@@ -1,0 +1,30 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+@import 'colours.scss';
+
+
+$product-colour: 'wisdomblue';
+
+$primary-colour:  map-get(map-get($colours, $product-colour), dark);
+$secondary-colour: map-get(map-get($colours,$product-colour), main);
+$text-colour:  map-get(map-get($colours,text), main);
+$lighttext-colour:  map-get(map-get($colours,text), light);
+$rollover-background-colour:  map-get(map-get($colours,$product-colour), lightest-3);
+$background-colour: #F8FAFB;
+$darkenby: 5%;
+$form-menu-width:524px;
+$form-menu-table-width:900px;
+
+body{
+  background:$background-colour;
+  font-family: 'Barlow';
+  color:$text-colour
+}
+
+/*mix in for :hover, mix in fir validation icons
+
+standard text in panel
+icons
+table
+modal & other screens
+*/

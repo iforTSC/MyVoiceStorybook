@@ -1,0 +1,26 @@
+@import 'globalStyles/tables.scss';
+
+.form-name{
+  min-width:225px;
+  &:before{
+    margin:0 8px 2px 0 ;
+    content: "●";
+    color:green;
+    font-size:24px   ;
+  } 
+  > span{
+    &:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    color:$primary-colour
+    }
+  }
+}
+
+.form-menu-item {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+ 
+}

@@ -1,0 +1,81 @@
+
+    
+@import 'global.scss';
+
+    table{
+        min-width:$form-menu-width;    
+        width: 100%;
+        border-collapse: collapse;
+
+        &.form-menu{
+           max-width:$form-menu-table-width;
+           margin:1em 0 2em 0 ;
+           font-size:20px;
+           &--select{
+            font-size:14px
+         }
+        }
+
+        .table-title{
+            font-size:20px;
+            text-align:left;
+            padding:1em 0.75em .25em 0.75em 
+        }
+
+        .table-headings{ 
+            padding:1.5em 0.75em 0.25em 0.75em;
+            font-size:16px;
+            &--left{
+                text-align: left;
+            }
+            &--date{
+                text-align: left;
+                padding-left: 3.75em;
+            }
+            &--right{
+            text-align: right;  
+            padding-right: .5em;
+            } 
+            &--min{
+                min-width:100px;
+            }
+         } 
+        .table-cell{
+            padding:1em 0.75em  ;
+            background:white;
+         
+            &--fill{
+                width:100%;
+                min-width:100px;
+            }
+            &--numbers{
+                text-align: right;
+                min-width:100px;
+            }
+            &--date{
+                text-align: left;
+                padding-left:3em
+            }
+            &--footer{
+                font-size:12px;
+                text-align: right;
+            padding: 0.75em;
+            background: transparent;
+            }
+
+            &--icon{
+                width:32px;
+                
+                text-align: center;
+            }
+
+            &--order{
+                padding: 1em 0.75em 1.25em 0.75em;
+                display: flex;
+                
+                 div{ 
+                    width:50%
+                }
+            }
+        }
+    }

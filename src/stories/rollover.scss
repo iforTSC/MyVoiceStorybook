@@ -1,0 +1,80 @@
+@import 'globalStyles/global.scss';
+
+
+.rollover-container{
+  position:relative;
+  cursor: pointer;
+  width:32px; height:32px;
+  display:inline-block; 
+  transform: translateY(10px);
+}
+
+
+
+@mixin rollover-arrow {
+  padding:8px; 
+  background-image: conic-gradient(transparent 90deg,$rollover-background-colour 90deg);
+  content:'';
+  position:absolute;
+  border-width: 0 0 1px 1px;
+  border-radius: 1px;
+}
+
+.rollover{
+  font-size:11px;
+    padding:.5em 0.75em;
+    background:$rollover-background-colour;
+    border-radius: 4px;
+    width:fit-content;
+    height:fit-content;
+    min-width:128px;
+    position:absolute;
+    box-shadow: 1px 2px 2px $text-colour;
+    &--above{
+      bottom: calc(100% + 4px);
+      left: calc(-100% - 24px);
+    }
+    &--below{
+      top: calc(100% + 4px);
+      left: calc(-100% - 24px);
+    }
+    &--right{
+      top: calc(-100% + 16px);
+        left: calc(100% + 4px);
+      }
+      &--left{
+        top: calc(-100% + 16px);
+        right: calc(100% + 4px);
+      }
+  }
+
+  .rollover--above:before{
+    @include rollover-arrow;
+    top: calc(100% - 8px);
+    left:calc(50% - 8px);;
+    transform: rotate(-45deg) ;
+    box-shadow: -1px 1px 1px $text-colour;
+  }
+
+  .rollover--right:before{
+    @include rollover-arrow;
+    top: calc(50% - 8px);
+    left:-9px;
+    transform: rotate(45deg) ;
+    }
+
+    .rollover--left:before{
+      @include rollover-arrow;
+      top: calc(50% - 8px);
+      right:-8px;
+      transform: rotate(-135deg) ;
+      box-shadow: -1px 1px 1px $text-colour;
+      }
+
+      .rollover--below:before{
+        @include rollover-arrow;
+        bottom: calc(100% - 8px);
+        left:calc(50% - 8px);
+        transform: rotate(135deg) ;
+    
+      }

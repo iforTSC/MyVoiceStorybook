@@ -1,0 +1,25 @@
+@import 'globalStyles/global.scss';
+
+$colournames:('wisdomblue', 'protectedteal','safeguardingblue','calmingviolet','hopefulyellow', 'growthgreen','confidentcyan', 'concernred',text);
+$shades:('main', 'dark', 'darker', 'darkest', 'light', 'lighter', 'lightest-1', 'lightest-2', 'lightest-3');
+
+.uct{
+  display:block;
+  height:32px;
+  width:32px;
+}
+
+
+@each $colourname in $colournames {
+  @each $shade in $shades {
+    .uct-#{$colourname}--#{$shade} {
+      background-color: map-get(map-get($colours, $colourname), $shade);
+    }
+    .hex-#{$colourname}--#{$shade}
+    {
+      &:before {
+      content: '#{map-get(map-get($colours, $colourname), $shade)}';
+      }
+    }
+  }
+}

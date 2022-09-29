@@ -1,0 +1,13 @@
+$icons:(clock, calendar, chevron-down, chevron-up, info);
+
+@each $icon in $icons {
+    .icon-#{$icon} {
+        content:url('/img/icon-#{$icon}.svg');
+    }
+    .icon-bg-#{$icon} {
+        background-image:url('/img/icon-#{$icon}.svg');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 8px) 50%
+    }
+  }
+

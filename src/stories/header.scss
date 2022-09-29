@@ -1,0 +1,71 @@
+@import 'globalStyles/global.scss';
+
+
+.header {
+  height:60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:white;
+}
+
+.header-inner{
+    display:flex;  height:60px;
+    align-items: center;
+    margin: 8px;
+}
+
+.header-menu{
+  display:flex;
+  width:100%;
+  align-items: center;
+}
+
+.dropdown{
+  position: absolute;
+  top:40px;
+  right:8px;
+  overflow:hidden;
+  box-sizing: border-box;
+}
+
+.dropdown-inner{
+  position: relative;
+  top:-32px;
+  background:white;
+  border: 0px solid $text-colour;
+  border-radius: 0px 0px 2px 2px;
+  &--down{
+    animation: animate-dropdown .25s ;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+   }
+}
+
+
+@keyframes animate-dropdown{
+  from{top:-32px}
+  to{top:0px}
+}
+
+.svg-wrapper
+  {
+    display:flex;  height:60px;
+    align-items: center;
+    margin: 8px
+  }
+
+svg {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.product-name{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin:2px 32px 2px 8px
+} 
