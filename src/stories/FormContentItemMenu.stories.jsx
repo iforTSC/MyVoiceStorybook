@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+
 // A super-simple mock of the state of the store
 export const MockedState = {
   contentitems: [
@@ -39,8 +40,11 @@ export const MockedState = {
     }
   ],
   status: 'idle',
+  total:3,
   error: null,
 };
+
+
 
 // A super-simple mock of a redux store
 const Mockstore = ({ contentitemboxState, children }) => (
@@ -67,6 +71,26 @@ const Mockstore = ({ contentitemboxState, children }) => (
               const contentitem = state.contentitems.findIndex((contentitem) => contentitem.id === id);
               let checked = state.contentitems[contentitem][attr].checked;
               state.contentitems[contentitem][attr].checked = !checked;
+            },
+            updateContentItemText: (state, action) => {
+              const { id, attr, content } = action.payload;
+              const contentitem = state.contentitems.findIndex((contentitem) => contentitem.id === id);
+              
+              state.contentitems[contentitem][attr] = content;
+            },
+            addContentItem: (state, action) => {
+              state.total = 1 + state.total
+              let newId = state.total;
+              const   newItem = {
+                id:newId,
+                title:'New Title',
+                help: 'New Help',
+                placeholder:'New placeholder',
+                mapsto: 'New maps to',
+                show:{checked:false, disabled:false},
+                mandatory:{checked:false, disabled:false}
+              }
+              state.contentitems.push(newItem);
             }
           },
         }).reducer,

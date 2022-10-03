@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateContentItemOrder,updateContentItemStatus } from '../lib/store';
+import { updateContentItemOrder,updateContentItemStatus, addContentItem, updateContentItemText } from '../lib/store';
 
 import {FormContentItem } from './FormContentItem';
 
@@ -32,12 +32,24 @@ const check = (value, attribute) => {
   dispatch(updateContentItemStatus({ id: value, attr:attribute }));
 };
   
+const add = (value) => {
+  dispatch(addContentItem({val: value}));
+};
+
+const edit = (value, attribute, text) => {
+ 
+  dispatch(updateContentItemText({ id: value, attr:attribute, content: text }));
+};
+
+
+
+
     return (
       <>
         <div className="form-title">Safeguarding Form</div>
         <Rollover position={rolloverposition} icon="info" rollovertext={rollovertext}></Rollover>
-        <FormContentItem formdetails={contentitems}  length={ contentitems.length} onMove={move} onCheck={check} />
-        <Button primary={true} size="regular" label="Add Custom Field"/>
+        <FormContentItem formdetails={contentitems}  length={ contentitems.length} onMove={move}  onEdit={edit} />
+        <Button primary={true} size="regular" label="Add Custom Field" onClick={()=>add( contentitems.length)}/>
     </>
   );
     }

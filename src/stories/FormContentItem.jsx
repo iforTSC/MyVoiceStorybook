@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from './Button';
+import { EditableTableCell } from './EditableTableCell';
 import './formselect.scss';
 
-export const FormContentItem = ({formdetails, length, onMove, onCheck}) => (
+export const FormContentItem = ({formdetails, length, onMove, onCheck, onEdit}) => (
 <table className='form-menu form-menu--select'>
 {
     (length > 1) && 
@@ -13,7 +14,7 @@ export const FormContentItem = ({formdetails, length, onMove, onCheck}) => (
      <thead>
       <tr>
         <th className="table-headings">Show</th>
-        <th className="table-headings table-headings--left">Label Title</th>
+        <th className="table-headings table-headings--left">Title</th>
         <th className="table-headings table-headings--left" >Help Text</th>
         <th className="table-headings table-headings--left">Input Placeholder</th>
         <th className="table-headings table-headings--left">Maps To</th>
@@ -28,17 +29,17 @@ export const FormContentItem = ({formdetails, length, onMove, onCheck}) => (
         
           <tr key= {formdetail.id}> 
             <td className='table-cell table-cell--icon'><Button size="checkbox" label="" onChange={() => onCheck(formdetail.id,'show')} checked={formdetail.show.checked} /></td>
-            <td className='table-cell'><span>{formdetail.title}</span></td>
+            <td className='table-cell'><EditableTableCell  {...formdetail} onEdit={onEdit} /></td>
             <td className='table-cell'>{formdetail.help}</td>
             <td className='table-cell'>{formdetail.placeholder}</td>
             <td className='table-cell'>{formdetail.mapsto}</td>
             <td className='table-cell table-cell--icon'><Button size="checkbox" label="" onChange={() => onCheck(formdetail.id,'mandatory')} checked={formdetail.mandatory.checked}  disabled={formdetail.mandatory.disabled} /></td>
             <td className='table-cell table-cell--order '> 
             <div>
-              {index > 0 ?  <Button  size="regular" label="" icon="chevron-up" onClick={() => onMove(formdetail.id,'up')}/>:<></>}
+              {index > 0 ?  <Button  size="regular" label="" icon="chevron-up" onClick={() => onMove(formdetail.id,'up')}/>:<>&nbsp;</>}
               </div>
               <div>
-              {index < length - 1 ? <Button  size="regular" label="" icon="chevron-down"  onClick={() => onMove(formdetail.id,'dn')}/>:<></>}
+              {index < length - 1 ? <Button  size="regular" label="" icon="chevron-down"  onClick={() => onMove(formdetail.id,'dn')}/>:<>&nbsp;</>}
               </div>
             </td>
           </tr>

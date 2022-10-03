@@ -29,6 +29,8 @@ Default.args = {
     help: 'Help',
     placeholder:'Placeholder',
     mapsto: 'Maps To',
+    show:{checked:true},
+    mandatory:{checked:true, disabled:false}
   }]
 };
 

@@ -44,6 +44,15 @@ const ContentItemBoxData = {
   error: null,
 };
 
+export const  blankItem = {
+  id:0,
+  title:'New Title',
+  help: 'New Help',
+  placeholder:'New placeholder',
+  mapsto: 'New maps to',
+  show:{checked:false, disabled:false},
+  mandatory:{checked:false, disabled:false}
+}
 /*
  * The store is created here.
  * You can read more about Redux Toolkit's slices in the docs:
@@ -52,6 +61,7 @@ const ContentItemBoxData = {
 const ContentItemsSlice = createSlice({
   name: 'contentitembox',
   initialState: ContentItemBoxData,
+ 
   reducers: {
     updateContentItemOrder: (state, action) => {
               
@@ -69,12 +79,22 @@ const ContentItemsSlice = createSlice({
       const contentitem = state.contentitems.findIndex((contentitem) => contentitem.id === id);
       let checked = state.contentitems[contentitem][attr].checked;
       state.contentitems[contentitem][attr].checked = !checked;
+    },
+    updateContentItemText: (state, action) => {
+      const { id, attr, content } = action.payload;
+      const contentitem = state.contentitems.findIndex((contentitem) => contentitem.id === id);
+      state.contentitems[contentitem][attr] = content;
+    },
+    addContentItem: (state) => {
+      let newItem = blankItem;
+      newItem.id = 1 + state.contentitems.length;
+      state.contentitems.push(newItem);
     }
   },
 });
 
 // The actions contained in the slice are exported for usage in our components
-export const { updateContentItemOrder, updateContentItemStatus } = ContentItemsSlice.actions;
+export const { updateContentItemOrder, updateContentItemStatus,updateContentItemText, addContentItem } = ContentItemsSlice.actions;
 
 /*
  * Our app's store configuration goes here.

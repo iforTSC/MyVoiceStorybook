@@ -1,0 +1,27 @@
+@import 'globalStyles/global.scss';
+
+.editable-tablecell-container{
+    position:relative;
+    cursor: pointer;
+    background-color: #fff;
+    width:100%;
+    min-width:220px;
+    
+    max-width:480px;
+    > div{
+        height:64px;
+        width:calc(100% - 32px);
+    }
+}
+  
+.editable-tablecell-text{     
+    padding: 24px 8px;
+    font-size: 14px;
+}
+
+.editable-tablecell-input{     
+    padding: 4px 0;
+    input{
+        font-size: 14px;
+    }
+}

@@ -69,7 +69,8 @@
 
 
     .input-text-content-wrapper{
-      display:flex
+      display:flex;
+      position: relative;
     }
     .input-text-content{
       margin:7px 0;
@@ -78,7 +79,7 @@
       padding:0 0.5em;
       font-family: 'Barlow';
       font-size:16px;
-      width:calc(100% - 2em);
+      width:calc(100% - 1em);
       border-radius: 4px;
       border-width:1px;
       border-color: $text-colour;
@@ -91,10 +92,10 @@
     }
     .input-textarea-content{
       margin:7px 0;
-      padding:00.75em;
+      padding:0 0.75em;
       font-family: 'Barlow';
       font-size:16px;
-      width:calc(100% - 2em);
+      width:calc(100% - 1em);
       border-radius: 4px;
       border-width:1px;
       border-color: $text-colour;
@@ -112,6 +113,8 @@
       display: block;
       background-repeat: no-repeat;
       height:24px;
-      width:24px;
-      transform: translate(-32px, 16px);
+      width:24px;    
+      position: absolute;
+      right: 16px;
+      top: 16px;
       }

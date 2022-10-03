@@ -12,7 +12,7 @@ export default {
   },
   
   decorators: [page => <div>
-  <div style={{  margin: '3em' }}>
+  <div style={{  margin: '3em' }} className="input-area">
   {page()}</div></div>],
 };
 

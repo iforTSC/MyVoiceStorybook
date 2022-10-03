@@ -1,4 +1,4 @@
-$icons:(clock, calendar, chevron-down, chevron-up, info);
+$icons:(clock, calendar, chevron-down, chevron-up, info, pen, save);
 
 @each $icon in $icons {
     .icon-#{$icon} {
