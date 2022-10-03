@@ -45,7 +45,7 @@ export const EditableTableCell = ({ text,onEdit,...props }) => {
   
 
   <div className='editable-tablecell-container icon-bg-save  last' style={{display:'none',  backgroundColor:'transparent'}}  onClick={(e)=>blur(e)}>
-    <div><div className='editable-tablecell-input'><InputTextField  input={text} label={null} title={null} hint={null} onEdit={onEdit} {...props}/></div></div>
+    <div><div className='editable-tablecell-input'><InputTextField  input={props? props.title: text} label={null} title={null} hint={null} onEdit={onEdit} {...props}/></div></div>
   </div>
   </div>
  )
@@ -59,5 +59,5 @@ EditableTableCell.propTypes = {
 
 EditableTableCell.defaultProps = {
   text: 'text',
-  onEdit:()=> {return;}
+  onEdit:()=> {alert("Changes only recorded in composite element 'FormContentItemMenu'");return;}
 };

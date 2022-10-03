@@ -12,7 +12,8 @@ export const InputTextField = ({title, label, hint, textarea, textareaRows, show
     {hint && <div className="input-hint">{hint}</div>}
     {showValidation && (<div className={  `input-validation input-validation--${validationType}`}>{validationMessage}</div>)}
     <div className="input-text-content-wrapper">
-    {!textarea && ( <input type="text"  placeholder={placeholder}  value={props.title ? props.title : title} className="input-text-content"  onChange={(e)=> onEdit(props.id,'title',e.target.value)}></input>)}
+    {!textarea && ( <input type="text"  placeholder={placeholder}  value={props.title ? props.title : title} className="input-text-content"  
+    onChange={(e)=> onEdit(props.id,'title',e.target.value)}></input>)}
     {(!textarea && icon) && (<span className={`input-text-icon icon-${icon}`}></span>)}
     {textarea && ( <textarea  rows={textareaRows} cols="50" className="input-textarea-content" placeholder={placeholder}>{input}</textarea>)}
     </div>
@@ -30,7 +31,7 @@ InputTextField.propTypes = {
   showValidation: PropTypes.bool,
   validationType: PropTypes.oneOf(['error', 'success', 'warning']),
   validationMessage:PropTypes.string.isRequired,
-  icon: PropTypes.oneOf([null, 'clock', 'calendar']),
+  icon: PropTypes.oneOf([null, 'clock', 'calendar','pen']),
   onClick: PropTypes.func,
 
 };
@@ -47,5 +48,6 @@ InputTextField.defaultProps = {
   validationMessage:"Validation Message",
   validationType:"error",
   onClick: undefined,
+  onEdit:()=> {alert("Changes only recorded in composite element 'FormContentItemMenu'");return;}
 }
 

@@ -75,7 +75,7 @@ const Mockstore = ({ contentitemboxState, children }) => (
             updateContentItemText: (state, action) => {
               const { id, attr, content } = action.payload;
               const contentitem = state.contentitems.findIndex((contentitem) => contentitem.id === id);
-              
+              console.log(attr, content)
               state.contentitems[contentitem][attr] = content;
             },
             addContentItem: (state, action) => {
